@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEEMDO Project Cart — BPO & Call Center Marketplace</title>
+  <meta name="description" content="LEEMDO Project Cart connects call centers and BPO providers with high-paying international campaigns. Find verified Voice, Non-Voice, and digital service projects." />
+  <meta name="keywords" content="BPO marketplace, call center projects, CPL campaigns, CPA campaigns, outsourcing, LEEMDO" />
+  <meta property="og:title" content="LEEMDO Project Cart" />
+  <meta property="og:description" content="Connecting Projects. Empowering Growth." />
+  <link rel="icon" href="assets/favicon/favicon.ico" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a class="nav-logo" onclick="navigateTo('home')">
+        <img src="assets/img/logo.png" alt="LEEMDO Logo" />
+        <div class="logo-text-wrap">
+          <span class="logo-name">LEEMDO</span>
+          <span class="logo-sub">Project Cart</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="nav-links" role="navigation">
+        <span class="nav-link" data-view="home"     onclick="navigateTo('home')">Home</span>
+        <span class="nav-link" data-view="projects" onclick="navigateTo('projects')">Franchises</span>
+        <span class="nav-link" onclick="navigateTo('home');setTimeout(()=>document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'}),300)">Investors &amp; Buyers</span>
+        <span class="nav-link" data-view="about"   onclick="navigateTo('about')">About Us</span>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="nav-cta">
+        <button class="nav-btn-signin" id="nav-login-btn" onclick="openModal('auth-modal')">Sign In</button>
+        <button class="nav-btn-post" onclick="openModal('auth-modal');setTimeout(()=>switchAuthTab('signup'),50)">Post a Project</button>
+        <!-- User pill (hidden until logged in) -->
+        <div class="user-pill" id="nav-user-pill" style="display:none" onclick="navigateTo('dashboard')">
+          <div class="user-pill-avatar" id="nav-avatar-initials">AJ</div>
+          <span class="user-pill-name" id="user-pill-name">User</span>
+        </div>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav Drawer -->
+<div class="mobile-nav" id="mobile-nav" role="navigation">
+  <div class="mobile-nav-inner">
+    <button class="mobile-nav-link" data-view="home"     onclick="navigateTo('home')">🏠 Home</button>
+    <button class="mobile-nav-link" data-view="projects" onclick="navigateTo('projects')">📂 Franchises</button>
+    <button class="mobile-nav-link" onclick="navigateTo('home');setTimeout(()=>document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'}),300)">💼 Investors &amp; Buyers</button>
+    <button class="mobile-nav-link" data-view="about"   onclick="navigateTo('about')">ℹ️ About Us</button>
+    <div class="mobile-nav-divider"></div>
+    <div class="mobile-nav-cta">
+      <button class="btn btn-outline btn-sm" id="mobile-login-btn" onclick="openModal('auth-modal');closeHamburger()">Sign In</button>
+      <button class="btn btn-primary btn-sm" onclick="openModal('auth-modal');setTimeout(()=>switchAuthTab('signup'),50);closeHamburger()">Register Free</button>
+    </div>
+    <div class="user-pill" id="mobile-user-pill" style="display:none;margin-top:8px;justify-content:center" onclick="navigateTo('dashboard');closeHamburger()">
+      <div class="user-pill-avatar">AJ</div>
+      <span class="user-pill-name" style="color:var(--primary)">My Dashboard</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HOME VIEW
+════════════════════════════════════════════════════════════════ -->
+<div class="view active" id="home-view">
+
+  <!-- Hero -->
+  <section id="hero">
+    <div id="hero-particles"></div>
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+
+    <div class="container" style="position:relative;z-index:1">
+      <div style="display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;min-height:calc(100vh - 72px)">
+        <!-- Left -->
+        <div class="hero-content" style="max-width:100%;padding:60px 0">
+          <div class="hero-label">🌍 #1 BPO & Call Center Marketplace</div>
+          <h1>Find <em>High-Paying</em> BPO &amp; Call Center Projects</h1>
+          <p class="hero-sub">Connect with verified international campaigns and scale your outsourcing business — Voice, Non-Voice, and digital service campaigns on demand.</p>
+          <div class="hero-actions">
+            <button class="btn btn-white btn-lg" onclick="navigateTo('projects')">
+              📂 Browse Projects
+            </button>
+            <button class="btn btn-secondary btn-lg" onclick="openModal('auth-modal');setTimeout(()=>switchAuthTab('signup'),50)">
+              🚀 Post a Project
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="num" data-counter>500+</span>
+              <span class="lbl">Active Projects</span>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="hero-stat">
+              <span class="num">1,200+</span>
+              <span class="lbl">Verified Partners</span>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="hero-stat">
+              <span class="num">$2M+</span>
+              <span class="lbl">Payouts Processed</span>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="hero-stat">
+              <span class="num">48</span>
+              <span class="lbl">Countries</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right — Card Stack -->
+        <div class="hero-card-stack" style="display:flex;flex-direction:column;gap:12px;padding:20px">
+          <div class="hero-card-item">
+            <div class="hero-card-row">
+              <span style="font-size:1.2rem">☀️</span>
+              <span class="badge badge-orange">Featured</span>
+            </div>
+            <div class="hero-card-row" style="margin-bottom:4px">
+              <span class="hero-card-title">Solar Appointment Setting</span>
+              <span class="hero-card-payout">$60/Appt</span>
+            </div>
+            <div class="hero-card-progress">
+              <div class="hero-card-progress-label"><span>Applications</span><span>21/30</span></div>
+              <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+            </div>
+            <div style="display:flex;gap:6px">
+              <span class="badge badge-green">Voice</span>
+              <span class="badge badge-grey">🇺🇸 US</span>
+              <span class="badge badge-orange">CPL</span>
+            </div>
+          </div>
+
+          <div class="hero-card-item" style="opacity:0.9">
+            <div class="hero-card-row">
+              <span style="font-size:1.2rem">⚖️</span>
+              <span class="badge badge-green">Active</span>
+            </div>
+            <div class="hero-card-row" style="margin-bottom:4px">
+              <span class="hero-card-title">MVA Legal Campaign</span>
+              <span class="hero-card-payout">$55/Lead</span>
+            </div>
+            <div style="display:flex;gap:6px">
+              <span class="badge badge-blue">Voice</span>
+              <span class="badge badge-grey">🇺🇸 US</span>
+            </div>
+          </div>
+
+          <div class="hero-card-item" style="opacity:0.75">
+            <div class="hero-card-row">
+              <span style="font-size:1.2rem">🏡</span>
+              <span class="badge badge-teal">New</span>
+            </div>
+            <div class="hero-card-row" style="margin-bottom:4px">
+              <span class="hero-card-title">ECO4 UK Home Insulation</span>
+              <span class="hero-card-payout">£40/Lead</span>
+            </div>
+            <div style="display:flex;gap:6px">
+              <span class="badge badge-green">Voice</span>
+              <span class="badge badge-grey">🇬🇧 UK</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" onclick="document.getElementById('brands-bar').scrollIntoView({behavior:'smooth'})">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- Trusted By -->
+  <div class="brands-bar" id="brands-bar">
+    <div class="container">
+      <div class="brands-inner">
+        <span style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);white-space:nowrap">Trusted by</span>
+        <div class="brand-item">🏦 FinancePro US</div>
+        <div class="brand-item">☀️ SunPath Solutions</div>
+        <div class="brand-item">🛡️ InsureTech UK</div>
+        <div class="brand-item">🏥 MedCare BPO</div>
+        <div class="brand-item">⚖️ LegalEdge Group</div>
+        <div class="brand-item">💬 TechSupport Hub</div>
+        <div class="brand-item">🏡 EcoGrant UK</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <section class="section section-alt" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="label">⚙️ Simple Process</div>
+        <h2>How LEEMDO Works</h2>
+        <p>Three simple steps to connect call centers with high-paying campaigns</p>
+      </div>
+      <div class="how-grid">
+        <div class="step-card card reveal">
+          <div class="step-icon-wrap">📋</div>
+          <div class="step-number">1</div>
+          <h3>Register & Get Verified</h3>
+          <p>Create your profile, submit your company documents, and get a verified badge. Takes less than 48 hours.</p>
+        </div>
+        <div class="step-card card reveal reveal-delay-2">
+          <div class="step-icon-wrap">🔍</div>
+          <div class="step-number">2</div>
+          <h3>Browse & Apply</h3>
+          <p>Filter projects by type, country, payout, and industry. Apply directly with your proposal and team size.</p>
+        </div>
+        <div class="step-card card reveal reveal-delay-4">
+          <div class="step-icon-wrap">💰</div>
+          <div class="step-number">3</div>
+          <h3>Start & Get Paid</h3>
+          <p>Onboard with the client, begin the campaign, and get paid via CPL, CPA, commission, or fixed rate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="section" id="featured-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="label">⭐ Featured</div>
+        <h2>Top BPO Campaigns Right Now</h2>
+        <p>Hand-picked, high-converting projects from verified clients</p>
+      </div>
+      <div class="grid-auto" id="featured-projects-grid"></div>
+      <div style="text-align:center;margin-top:40px">
+        <button class="btn btn-outline btn-lg" onclick="navigateTo('projects')">View All 11 Projects →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Banner -->
+  <section class="section section-dark" style="padding:64px 0">
+    <div class="container">
+      <div class="grid-4" style="text-align:center">
+        <div class="reveal">
+          <div style="font-size:3rem;font-weight:900;color:#fff;margin-bottom:4px">500+</div>
+          <div style="font-size:0.875rem;color:rgba(255,255,255,0.7);font-weight:500;text-transform:uppercase;letter-spacing:0.05em">Active Campaigns</div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div style="font-size:3rem;font-weight:900;color:#fff;margin-bottom:4px">1,200+</div>
+          <div style="font-size:0.875rem;color:rgba(255,255,255,0.7);font-weight:500;text-transform:uppercase;letter-spacing:0.05em">Verified Partners</div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div style="font-size:3rem;font-weight:900;color:#fff;margin-bottom:4px">$2M+</div>
+          <div style="font-size:0.875rem;color:rgba(255,255,255,0.7);font-weight:500;text-transform:uppercase;letter-spacing:0.05em">Payouts Processed</div>
+        </div>
+        <div class="reveal reveal-delay-3">
+          <div style="font-size:3rem;font-weight:900;color:#fff;margin-bottom:4px">48</div>
+          <div style="font-size:0.875rem;color:rgba(255,255,255,0.7);font-weight:500;text-transform:uppercase;letter-spacing:0.05em">Countries Covered</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why LEEMDO -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="label">🌟 Why Choose Us</div>
+        <h2>Built for BPO Professionals</h2>
+        <p>Every feature designed to help call centers find and win quality campaigns</p>
+      </div>
+      <div class="grid-3">
+        <div class="card reveal" style="padding:32px 28px">
+          <div class="feature-icon">🛡️</div>
+          <h3 style="font-size:1.125rem;margin-bottom:8px">Verified Clients</h3>
+          <p style="font-size:0.875rem">Every project provider is KYC-verified with business registration and compliance review before listing.</p>
+        </div>
+        <div class="card reveal reveal-delay-1" style="padding:32px 28px">
+          <div class="feature-icon">💰</div>
+          <h3 style="font-size:1.125rem;margin-bottom:8px">Transparent Payouts</h3>
+          <p style="font-size:0.875rem">Full payout details upfront — CPL, CPA, Commission, or Fixed. No hidden fees or surprise deductions.</p>
+        </div>
+        <div class="card reveal reveal-delay-2" style="padding:32px 28px">
+          <div class="feature-icon">🌍</div>
+          <h3 style="font-size:1.125rem;margin-bottom:8px">Global Reach</h3>
+          <p style="font-size:0.875rem">US and UK market campaigns with TCPA, GDPR, FCA, and HIPAA compliant listings only.</p>
+        </div>
+        <div class="card reveal reveal-delay-1" style="padding:32px 28px">
+          <div class="feature-icon">⚡</div>
+          <h3 style="font-size:1.125rem;margin-bottom:8px">Fast Matching</h3>
+          <p style="font-size:0.875rem">Smart filtering and instant application. Get matched and onboarded within 48–72 hours.</p>
+        </div>
+        <div class="card reveal reveal-delay-2" style="padding:32px 28px">
+          <div class="feature-icon">📊</div>
+          <h3 style="font-size:1.125rem;margin-bottom:8px">Dashboard Analytics</h3>
+          <p style="font-size:0.875rem">Track applications, earnings, and active campaigns in a clean, real-time dashboard.</p>
+        </div>
+        <div class="card reveal reveal-delay-3" style="padding:32px 28px">
+          <div class="feature-icon">🤝</div>
+          <h3 style="font-size:1.125rem;margin-bottom:8px">Dedicated Support</h3>
+          <p style="font-size:0.875rem">Our team of BPO experts is available to help onboard, resolve disputes, and scale your operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="label">💬 Testimonials</div>
+        <h2>What Our Members Say</h2>
+        <p>Real results from real BPO professionals using LEEMDO</p>
+      </div>
+      <div class="grid-3">
+        <div class="testimonial-card reveal">
+          <div class="quote-icon">"</div>
+          <div class="stars">★★★★★</div>
+          <p>LEEMDO transformed the way we source BPO projects. We went from struggling to find quality campaigns to having a full pipeline within 3 months.</p>
+          <div class="testimonial-author">
+            <div class="avatar-placeholder" style="width:44px;height:44px">RM</div>
+            <div class="info">
+              <div class="name">Rahul Mehta</div>
+              <div class="role">Operations Director, VoiceConnect India</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="quote-icon">"</div>
+          <div class="stars">★★★★★</div>
+          <p>As a project provider, the quality of applicants on LEEMDO is unmatched. Verified call centers, real capabilities, and fast onboarding.</p>
+          <div class="testimonial-author">
+            <div class="avatar-placeholder" style="width:44px;height:44px">SM</div>
+            <div class="info">
+              <div class="name">Sarah Mitchell</div>
+              <div class="role">Campaign Manager, InsureTech US</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-4">
+          <div class="quote-icon">"</div>
+          <div class="stars">★★★★★</div>
+          <p>We posted our solar campaign and had 15 qualified centers contact us within 48 hours. The platform pays for itself in the first deal.</p>
+          <div class="testimonial-author">
+            <div class="avatar-placeholder" style="width:44px;height:44px">JO</div>
+            <div class="info">
+              <div class="name">James O'Brien</div>
+              <div class="role">CEO, SunPath Solutions UK</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section section-alt" id="pricing-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="label">💳 Pricing</div>
+        <h2>Simple, Transparent Pricing</h2>
+        <p>Start free, scale as you grow. No hidden fees.</p>
+      </div>
+      <div class="grid-3" style="align-items:center">
+        <!-- Starter -->
+        <div class="pricing-card reveal">
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price"><span>$</span>0</div>
+          <div class="pricing-period">Forever free</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Browse all listings</li>
+            <li><span class="check">✓</span> Apply to 3 projects/month</li>
+            <li><span class="check">✓</span> Basic profile page</li>
+            <li><span class="check">✓</span> Email support</li>
+          </ul>
+          <button class="btn btn-outline" style="width:100%" onclick="openModal('auth-modal')">Get Started Free</button>
+        </div>
+
+        <!-- Professional (featured) -->
+        <div class="pricing-card featured reveal reveal-delay-2">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-name" style="color:rgba(255,255,255,0.85)">Professional</div>
+          <div class="pricing-price" style="color:#fff"><span>$</span>49</div>
+          <div class="pricing-period" style="color:rgba(255,255,255,0.65)">/month · billed monthly</div>
+          <ul class="pricing-features" style="color:#fff">
+            <li><span class="check">✓</span> Everything in Starter</li>
+            <li><span class="check">✓</span> Unlimited applications</li>
+            <li><span class="check">✓</span> Priority listing placement</li>
+            <li><span class="check">✓</span> Analytics dashboard</li>
+            <li><span class="check">✓</span> Direct messaging</li>
+            <li><span class="check">✓</span> Verified partner badge</li>
+          </ul>
+          <button class="btn btn-white" style="width:100%" onclick="openModal('auth-modal')">Start 14-Day Trial</button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card reveal reveal-delay-4">
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-price"><span>$</span>149</div>
+          <div class="pricing-period">/month · billed monthly</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Everything in Professional</li>
+            <li><span class="check">✓</span> Post unlimited projects</li>
+            <li><span class="check">✓</span> Featured placement</li>
+            <li><span class="check">✓</span> Dedicated account manager</li>
+            <li><span class="check">✓</span> Custom integrations</li>
+            <li><span class="check">✓</span> White-label options</li>
+          </ul>
+          <button class="btn btn-outline" style="width:100%" onclick="showToast('Our sales team will contact you shortly!','success')">Contact Sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:780px">
+      <div class="section-header">
+        <div class="label">❓ FAQ</div>
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about LEEMDO Project Cart</p>
+      </div>
+      <div id="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">How does LEEMDO Project Cart work? <div class="faq-icon">+</div></button>
+          <div class="faq-answer"><div class="faq-answer-inner">LEEMDO connects project providers (clients) with service providers (call centers, BPO firms, freelancers). Providers post campaigns with payout details; call centers browse, filter, and apply. Once matched, both parties connect directly through our secure platform.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is LEEMDO a free platform? <div class="faq-icon">+</div></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We offer a free Starter plan that lets you browse and apply to up to 3 projects per month. For unlimited access, our Professional plan starts at $49/month with a 14-day free trial — no credit card required.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How are service providers verified? <div class="faq-icon">+</div></button>
+          <div class="faq-answer"><div class="faq-answer-inner">All service providers undergo a verification process including business registration check, sample call review, compliance certification review, and reference checks. Verified partners receive a badge on their profile.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What types of projects are available? <div class="faq-icon">+</div></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We list Voice campaigns (telemarketing, appointment setting, insurance, healthcare) and Non-Voice projects (data processing, chat support, EPUB conversion). Both US and UK markets are covered across 8+ industries.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How are payouts handled? <div class="faq-icon">+</div></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Payouts are negotiated directly between providers and call centers. LEEMDO facilitates the connection and provides escrow services for Premium members. CPL, CPA, fixed rate, and commission structures are all supported.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I post projects as a client? <div class="faq-icon">+</div></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Absolutely. Register as a Project Provider, choose any plan, and post your campaign with full requirements, payout details, and compliance info. Your listing will be reviewed and published within 24 hours.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="section section-dark" style="padding:80px 0">
+    <div class="container" style="text-align:center">
+      <div class="reveal">
+        <div class="label" style="background:rgba(255,255,255,0.15);color:white;margin:0 auto var(--space-5) auto;display:inline-flex">🚀 Get Started Today</div>
+        <h2 style="font-size:clamp(1.75rem,4vw,3rem);margin-bottom:16px;color:white">Ready to Scale Your BPO Business?</h2>
+        <p style="color:rgba(255,255,255,0.75);font-size:1.125rem;max-width:560px;margin:0 auto 36px">Join 1,200+ verified call centers and BPO providers already winning campaigns on LEEMDO.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-white btn-lg" onclick="navigateTo('projects')">Browse Projects</button>
+          <button class="btn btn-secondary btn-lg" onclick="openModal('auth-modal');setTimeout(()=>switchAuthTab('signup'),50)">Create Free Account</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /home-view -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PROJECTS VIEW
+════════════════════════════════════════════════════════════════ -->
+<div class="view" id="projects-view">
+  <div class="container" style="padding-top:calc(var(--nav-height) + 32px);padding-bottom:64px">
+
+    <!-- Page Header -->
+    <div style="margin-bottom:32px" class="reveal">
+      <div class="label" style="display:inline-flex;margin-bottom:12px">📂 Marketplace</div>
+      <h1 style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:8px">Browse BPO &amp; Call Center Projects</h1>
+      <p style="font-size:1rem;color:var(--text-muted)">Filter by type, country, industry, and payout to find your perfect campaign match.</p>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar reveal" style="max-width:620px;margin-bottom:28px">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="project-search" placeholder="Search projects by title, keyword, or description…" />
+    </div>
+
+    <!-- Mobile Filter Toggle -->
+    <button class="btn btn-ghost btn-sm" id="mobile-filter-btn" style="margin-bottom:16px;display:none;align-items:center;gap:6px">
+      ⚙️ Filters
+    </button>
+
+    <div class="projects-layout">
+      <!-- Sidebar -->
+      <aside class="filter-sidebar">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+          <h3 style="font-size:1rem;font-weight:700">Filters</h3>
+          <button class="btn btn-ghost btn-sm" onclick="resetFilters()">Reset</button>
+        </div>
+        <div id="filter-sidebar-content"></div>
+      </aside>
+
+      <!-- Projects Grid -->
+      <div>
+        <div class="projects-header">
+          <div class="projects-count">Showing <strong id="projects-count-num">11</strong> projects</div>
+          <div class="projects-sort">
+            <select class="form-control" style="width:auto;padding:0.5rem 2rem 0.5rem 0.75rem;font-size:0.8125rem">
+              <option>Most Recent</option>
+              <option>Highest Payout</option>
+              <option>Most Applied</option>
+              <option>Featured First</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid-auto" id="projects-grid"></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /projects-view -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DASHBOARD VIEW
+════════════════════════════════════════════════════════════════ -->
+<div class="view" id="dashboard-view" style="display:none">
+
+  <!-- Sidebar -->
+  <aside class="dashboard-sidebar" id="dashboard-sidebar">
+    <div class="sidebar-logo">
+      <img src="assets/img/logo.png" alt="Logo" style="height:36px" />
+      <div>
+        <div style="font-size:0.875rem;font-weight:800;color:var(--text-primary)">LEEMDO</div>
+        <div style="font-size:0.7rem;color:var(--text-muted)">Project Cart</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <button class="sidebar-nav-item active" data-dash="overview" onclick="switchDashPanel('overview')">
+        <span class="nav-icon">📊</span> Overview
+      </button>
+      <button class="sidebar-nav-item" data-dash="my-projects" onclick="switchDashPanel('my-projects')">
+        <span class="nav-icon">📂</span> My Projects
+      </button>
+      <button class="sidebar-nav-item" data-dash="applications" onclick="switchDashPanel('applications')">
+        <span class="nav-icon">📋</span> Applications
+      </button>
+      <button class="sidebar-nav-item" data-dash="messages" onclick="switchDashPanel('messages')">
+        <span class="nav-icon">💬</span> Messages
+        <span class="badge badge-green" style="margin-left:auto">2</span>
+      </button>
+
+      <div class="sidebar-section-label" style="margin-top:8px">Account</div>
+      <button class="sidebar-nav-item" data-dash="settings" onclick="switchDashPanel('settings')">
+        <span class="nav-icon">⚙️</span> Settings
+      </button>
+      <button class="sidebar-nav-item" onclick="navigateTo('projects')">
+        <span class="nav-icon">🔍</span> Browse Projects
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="sidebar-nav-item" style="color:var(--error);width:100%" onclick="handleLogout()">
+        <span class="nav-icon">🚪</span> Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="dashboard-main">
+
+    <div class="dash-panel active" id="dash-overview"></div>
+    <div class="dash-panel" id="dash-my-projects"></div>
+    <div class="dash-panel" id="dash-applications"></div>
+    <div class="dash-panel" id="dash-messages"></div>
+    <div class="dash-panel" id="dash-settings"></div>
+
+  </main>
+</div><!-- /dashboard-view -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ABOUT VIEW
+════════════════════════════════════════════════════════════════ -->
+<div class="view" id="about-view">
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="hero-label" style="margin:0 auto 16px">🌳 Our Story</div>
+        <h1>About LEEMDO</h1>
+        <p style="max-width:560px;margin:0 auto">Connecting Projects. Empowering Growth.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container section">
+    <div class="grid-2" style="align-items:center;gap:60px;margin-bottom:64px">
+      <div class="reveal">
+        <div class="label" style="display:inline-flex;margin-bottom:16px">🏢 Who We Are</div>
+        <h2 style="margin-bottom:16px">The SMERGERS for BPO Projects</h2>
+        <p style="margin-bottom:16px">LEEMDO Project Cart is a premium B2B marketplace built exclusively for the outsourcing industry. We bridge the gap between international project providers and skilled call center operations across the globe.</p>
+        <p style="margin-bottom:24px">Founded on the belief that quality outsourcing partnerships should be accessible, transparent, and scalable — we provide the infrastructure for BPO businesses to thrive in a competitive market.</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap">
+          <div style="text-align:center">
+            <div style="font-size:2rem;font-weight:800;color:var(--primary)">2023</div>
+            <div style="font-size:0.8125rem;color:var(--text-muted)">Founded</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-size:2rem;font-weight:800;color:var(--primary)">48</div>
+            <div style="font-size:0.8125rem;color:var(--text-muted)">Countries</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-size:2rem;font-weight:800;color:var(--primary)">$2M+</div>
+            <div style="font-size:0.8125rem;color:var(--text-muted)">Payouts</div>
+          </div>
+        </div>
+      </div>
+      <div class="card reveal" style="padding:40px">
+        <img src="assets/img/logo.png" alt="LEEMDO" style="width:120px;margin:0 auto 24px;display:block" />
+        <h3 style="text-align:center;margin-bottom:12px">Our Mission</h3>
+        <p style="text-align:center;font-size:0.9375rem">To democratize access to global BPO opportunities — making it possible for any quality call center, anywhere in the world, to connect with verified, high-paying campaigns.</p>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <div class="label">💡 Our Values</div>
+      <h2>What We Stand For</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal" style="padding:28px;text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:12px">🌱</div>
+        <h3 style="font-size:1rem;margin-bottom:8px">Growth</h3>
+        <p style="font-size:0.875rem">We grow alongside our partners — celebrating every campaign won and milestone achieved.</p>
+      </div>
+      <div class="card reveal reveal-delay-2" style="padding:28px;text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:12px">🔒</div>
+        <h3 style="font-size:1rem;margin-bottom:8px">Trust</h3>
+        <p style="font-size:0.875rem">Every listing, every partner, every transaction — built on verified trust and compliance.</p>
+      </div>
+      <div class="card reveal reveal-delay-4" style="padding:28px;text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:12px">🤝</div>
+        <h3 style="font-size:1rem;margin-bottom:8px">Connection</h3>
+        <p style="font-size:0.875rem">The right project with the right team creates extraordinary results. We make that happen.</p>
+      </div>
+    </div>
+  </div>
+</div><!-- /about-view -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CONTACT VIEW
+════════════════════════════════════════════════════════════════ -->
+<div class="view" id="contact-view">
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="hero-label" style="margin:0 auto 16px">📞 Get In Touch</div>
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you. Our team is always here to help.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container section">
+    <div class="grid-2" style="gap:48px;align-items:start">
+      <!-- Contact Form -->
+      <div class="card reveal" style="padding:36px">
+        <h3 style="margin-bottom:24px">Send a Message</h3>
+        <form onsubmit="handleContactForm(event)">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input class="form-control" id="contact-name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input class="form-control" id="contact-email" type="email" placeholder="you@company.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <select class="form-control" id="contact-subject">
+              <option>General Inquiry</option>
+              <option>Partnership / Listing</option>
+              <option>Technical Support</option>
+              <option>Billing & Plans</option>
+              <option>Compliance Question</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message *</label>
+            <textarea class="form-control" id="contact-message" placeholder="Tell us how we can help…" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit" style="width:100%">Send Message 📤</button>
+        </form>
+      </div>
+
+      <!-- Info -->
+      <div class="reveal">
+        <h3 style="margin-bottom:24px">Get in Touch</h3>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div class="card" style="padding:20px;display:flex;align-items:center;gap:16px">
+            <div style="font-size:1.5rem;background:var(--primary-100);width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0">📧</div>
+            <div>
+              <div style="font-size:0.75rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Email</div>
+              <div style="font-weight:600;color:var(--text-primary)">hello@leemdo.com</div>
+            </div>
+          </div>
+          <div class="card" style="padding:20px;display:flex;align-items:center;gap:16px">
+            <div style="font-size:1.5rem;background:var(--primary-100);width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0">💬</div>
+            <div>
+              <div style="font-size:0.75rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Live Chat</div>
+              <div style="font-weight:600;color:var(--text-primary)">Mon–Fri, 9AM–6PM EST</div>
+            </div>
+          </div>
+          <div class="card" style="padding:20px;display:flex;align-items:center;gap:16px">
+            <div style="font-size:1.5rem;background:var(--primary-100);width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🌍</div>
+            <div>
+              <div style="font-size:0.75rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Headquarters</div>
+              <div style="font-weight:600;color:var(--text-primary)">Global · Remote-First</div>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal" style="padding:24px;margin-top:20px;background:var(--gradient-green);border:1px solid var(--primary-200)">
+          <h4 style="margin-bottom:8px;font-size:1rem">🚀 Ready to List Your Campaign?</h4>
+          <p style="font-size:0.875rem;margin-bottom:16px">Post your first project and connect with 1,200+ verified BPO partners worldwide.</p>
+          <button class="btn btn-primary btn-sm" onclick="openModal('post-project-modal')">Post a Project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /contact-view -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/img/logo.png" alt="LEEMDO" />
+          <div class="brand-name">LEEMDO<br><span style="font-size:0.75rem;font-weight:400;opacity:0.7">Project Cart</span></div>
+        </div>
+        <p>Connecting Projects. Empowering Growth. — The premier B2B marketplace for BPO and call center outsourcing campaigns worldwide.</p>
+        <div class="social-links">
+          <div class="social-link" title="LinkedIn">in</div>
+          <div class="social-link" title="Twitter">𝕏</div>
+          <div class="social-link" title="Facebook">f</div>
+          <div class="social-link" title="WhatsApp">W</div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <div class="footer-links">
+          <span class="footer-link" onclick="navigateTo('projects')">Browse Projects</span>
+          <span class="footer-link" onclick="openModal('post-project-modal')">Post a Project</span>
+          <span class="footer-link" onclick="navigateTo('home');setTimeout(()=>document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}),300)">Pricing</span>
+          <span class="footer-link" onclick="navigateTo('dashboard')">Dashboard</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <div class="footer-links">
+          <span class="footer-link" onclick="navigateTo('about')">About Us</span>
+          <span class="footer-link" onclick="navigateTo('contact')">Contact</span>
+          <span class="footer-link">Blog</span>
+          <span class="footer-link">Careers</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <div class="footer-links">
+          <span class="footer-link" onclick="navigateTo('home');setTimeout(()=>document.getElementById('faq-container').scrollIntoView({behavior:'smooth'}),300)">FAQ</span>
+          <span class="footer-link">Help Center</span>
+          <span class="footer-link">Compliance</span>
+          <span class="footer-link" onclick="navigateTo('contact')">Report Issue</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background:rgba(0,0,0,0.2)">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 LEEMDO Project Cart. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <span class="footer-bottom-link">Privacy Policy</span>
+          <span class="footer-bottom-link">Terms of Service</span>
+          <span class="footer-bottom-link">Cookie Policy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     MODALS
+════════════════════════════════════════════════════════════════ -->
+
+<!-- Auth Modal -->
+<div class="modal-overlay" id="auth-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="auth-modal-title">Sign In to LEEMDO</h2>
+      <button class="modal-close" onclick="closeModal('auth-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <!-- Tab Nav -->
+      <div style="display:flex;gap:0;background:var(--bg-alt);border-radius:10px;padding:4px;margin-bottom:24px">
+        <button id="auth-tab-login"  class="tab-btn active" style="flex:1" onclick="switchAuthTab('login')">Sign In</button>
+        <button id="auth-tab-signup" class="tab-btn"        style="flex:1" onclick="switchAuthTab('signup')">Create Account</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-control" id="login-email" type="email" placeholder="you@company.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input class="form-control" id="login-password" type="password" placeholder="••••••••" required />
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-bottom:20px">
+          <a style="font-size:0.8125rem;color:var(--primary);cursor:pointer;font-weight:500">Forgot password?</a>
+        </div>
+        <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">Sign In →</button>
+        <div class="divider-text">or</div>
+        <div style="text-align:center;font-size:0.875rem;color:var(--text-muted)">
+          Don't have an account?
+          <a style="color:var(--primary);cursor:pointer;font-weight:600" onclick="switchAuthTab('signup')">Sign up free</a>
+        </div>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signup-form" style="display:none" onsubmit="handleSignup(event)">
+        <div class="form-group">
+          <label class="form-label">Role</label>
+          <select class="form-control">
+            <option>🎙️ Service Provider (Call Center / BPO)</option>
+            <option>📋 Project Provider (Client / Campaign Owner)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input class="form-control" id="signup-name" placeholder="Your full name" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Company Name</label>
+          <input class="form-control" placeholder="Your company or BPO name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address *</label>
+          <input class="form-control" id="signup-email" type="email" placeholder="you@company.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password *</label>
+          <input class="form-control" id="signup-password" type="password" placeholder="Min 8 characters" required />
+        </div>
+        <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">Create Account 🚀</button>
+        <p style="font-size:0.75rem;color:var(--text-muted);text-align:center;margin-top:12px">By signing up, you agree to our Terms of Service and Privacy Policy.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Project Detail Modal -->
+<div class="modal-overlay" id="project-detail-modal">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h2>Project Details</h2>
+      <button class="modal-close" onclick="closeModal('project-detail-modal')">✕</button>
+    </div>
+    <div class="modal-body" id="project-detail-content"></div>
+  </div>
+</div>
+
+<!-- Post Project Modal -->
+<div class="modal-overlay" id="post-project-modal">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h2>📋 Post a New Project</h2>
+      <button class="modal-close" onclick="closeModal('post-project-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form onsubmit="handlePostProject(event)">
+        <div class="grid-2" style="gap:16px">
+          <div class="form-group" style="grid-column:1/-1">
+            <label class="form-label">Project Title *</label>
+            <input class="form-control" placeholder="e.g. Solar Appointment Setting — US Market" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Category *</label>
+            <select class="form-control" required>
+              <option>Voice</option>
+              <option>Non-Voice</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Country *</label>
+            <select class="form-control" required>
+              <option>🇺🇸 United States</option>
+              <option>🇬🇧 United Kingdom</option>
+              <option>🌍 Global / Remote</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Industry *</label>
+            <select class="form-control" required>
+              <option>Finance</option><option>Healthcare</option><option>Insurance</option>
+              <option>Legal</option><option>Energy</option><option>Technology</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Payout Type *</label>
+            <select class="form-control" required>
+              <option>CPL</option><option>CPA</option><option>Commission</option><option>Fixed Rate</option>
+            </select>
+          </div>
+          <div class="form-group" style="grid-column:1/-1">
+            <label class="form-label">Payout Details *</label>
+            <input class="form-control" placeholder="e.g. $25 per qualified lead" required />
+          </div>
+          <div class="form-group" style="grid-column:1/-1">
+            <label class="form-label">Project Description *</label>
+            <textarea class="form-control" placeholder="Describe the campaign, target audience, and expected agent activities…" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Number of Agents Needed</label>
+            <input class="form-control" placeholder="e.g. 5–20 agents" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Working Hours / Shift</label>
+            <input class="form-control" placeholder="e.g. 9 AM – 6 PM EST" />
+          </div>
+          <div class="form-group" style="grid-column:1/-1">
+            <label class="form-label">Compliance Requirements</label>
+            <input class="form-control" placeholder="e.g. TCPA compliant, HIPAA certified agents only" />
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:8px">
+          <button type="button" class="btn btn-outline" onclick="closeModal('post-project-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Post Project 🚀</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-container"></div>
+
+<!-- ── Extra Styles for Mobile ─────────────────────────────────── -->
+<style>
+  @media (max-width: 768px) {
+    #mobile-filter-btn { display: flex !important; }
+    .hero-content { padding: 40px 0 !important; }
+    .hero-card-stack { display: none !important; }
+    #hero > .container > div { grid-template-columns: 1fr !important; }
+    .pricing-card.featured { transform: scale(1) !important; }
+    #dashboard-view { flex-direction: column; }
+    .dashboard-sidebar { position: fixed; transform: translateX(-100%); }
+    .dashboard-sidebar.open { transform: translateX(0); }
+    .dashboard-main { margin-left: 0 !important; }
+  }
+
+  .stat-icon.teal { background: #e0f7fa; }
+  .stat-icon.orange { background: #fff3e0; }
+  .stat-icon.blue { background: #e3f2fd; }
+</style>
+
+<!-- ── Scripts ────────────────────────────────────────────────── -->
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/projects.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/app.js"></script>
+<script>
+  // Expose helpers
+  function handleContactForm(e) {
+    e.preventDefault();
+    showToast('Message sent! We\'ll get back to you within 24 hours. 📬', 'success');
+    e.target.reset();
+  }
+  function navigateTo(view) {
+    window.navigateTo(view);
+  }
+</script>
+</body>
+</html>
