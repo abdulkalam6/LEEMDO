@@ -34,17 +34,14 @@
 
       <!-- Desktop Links -->
       <nav class="nav-links" role="navigation">
-        <span class="nav-link" data-view="home"     onclick="navigateTo('home')">Home</span>
-        <span class="nav-link" data-view="projects" onclick="navigateTo('projects')">Franchises</span>
+        <span class="nav-link" data-view="home"       onclick="navigateTo('home')">Home</span>
+        <span class="nav-link" data-view="franchises" onclick="navigateTo('franchises')">Franchises</span>
         <span class="nav-link" onclick="navigateTo('home');setTimeout(()=>document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'}),300)">Investors &amp; Buyers</span>
-        <span class="nav-link" data-view="about"   onclick="navigateTo('about')">About Us</span>
+        <span class="nav-link" data-view="about"      onclick="navigateTo('about')">About Us</span>
       </nav>
 
-      <!-- Desktop CTA -->
+      <!-- Desktop CTA (user pill shown when logged in) -->
       <div class="nav-cta">
-        <button class="nav-btn-signin" id="nav-login-btn" onclick="openModal('auth-modal')">Sign In</button>
-        <button class="nav-btn-post" onclick="openModal('auth-modal');setTimeout(()=>switchAuthTab('signup'),50)">Post a Project</button>
-        <!-- User pill (hidden until logged in) -->
         <div class="user-pill" id="nav-user-pill" style="display:none" onclick="navigateTo('dashboard')">
           <div class="user-pill-avatar" id="nav-avatar-initials">AJ</div>
           <span class="user-pill-name" id="user-pill-name">User</span>
@@ -64,7 +61,7 @@
 <div class="mobile-nav" id="mobile-nav" role="navigation">
   <div class="mobile-nav-inner">
     <button class="mobile-nav-link" data-view="home"     onclick="navigateTo('home')">🏠 Home</button>
-    <button class="mobile-nav-link" data-view="projects" onclick="navigateTo('projects')">📂 Franchises</button>
+    <button class="mobile-nav-link" data-view="franchises" onclick="navigateTo('franchises')">📂 Franchises</button>
     <button class="mobile-nav-link" onclick="navigateTo('home');setTimeout(()=>document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'}),300)">💼 Investors &amp; Buyers</button>
     <button class="mobile-nav-link" data-view="about"   onclick="navigateTo('about')">ℹ️ About Us</button>
     <div class="mobile-nav-divider"></div>
@@ -598,6 +595,90 @@
 
 
 <!-- ═══════════════════════════════════════════════════════════════
+     FRANCHISES VIEW
+════════════════════════════════════════════════════════════════ -->
+<div class="view" id="franchises-view">
+
+  <!-- Hero Banner -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="hero-label" style="margin:0 auto 16px">🤝 Marketplace</div>
+        <h1>Franchise Opportunities</h1>
+        <p style="max-width:560px;margin:0 auto 28px">Discover BPO, call center, and digital service franchises ready to launch. Find the right opportunity, the right investment, the right territory.</p>
+        <!-- Search -->
+        <div class="search-bar" style="max-width:520px;margin:0 auto">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="franchise-search" placeholder="Search by name, sector, territory…" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section">
+
+    <!-- Stats Bar -->
+    <div class="franchise-stats-bar">
+      <div class="franchise-stats-bar-item">
+        <div class="franchise-stats-bar-val">12+</div>
+        <div class="franchise-stats-bar-lbl">Active Franchises</div>
+      </div>
+      <div class="franchise-stats-bar-item">
+        <div class="franchise-stats-bar-val">9</div>
+        <div class="franchise-stats-bar-lbl">Industry Sectors</div>
+      </div>
+      <div class="franchise-stats-bar-item">
+        <div class="franchise-stats-bar-val">$3K+</div>
+        <div class="franchise-stats-bar-lbl">Min Investment</div>
+      </div>
+      <div class="franchise-stats-bar-item">
+        <div class="franchise-stats-bar-val">6 mo</div>
+        <div class="franchise-stats-bar-lbl">Fastest ROI</div>
+      </div>
+    </div>
+
+    <!-- Layout: Sidebar + Grid -->
+    <div style="display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:start">
+
+      <!-- Filter Sidebar -->
+      <aside class="filter-sidebar" id="franchise-sidebar">
+        <div class="filter-sidebar-header">
+          <span>Filters</span>
+          <button class="filter-clear-btn" onclick="resetFranchiseFilters()">Reset</button>
+        </div>
+        <div id="franchise-filter-content"></div>
+      </aside>
+
+      <!-- Main Grid Area -->
+      <div>
+        <!-- Toolbar -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:12px;flex-wrap:wrap">
+          <span style="font-size:0.875rem;color:var(--text-muted);font-weight:500">
+            Showing <strong id="franchise-count" style="color:var(--text-primary)">12</strong> franchise opportunities
+          </span>
+          <div style="display:flex;gap:8px;align-items:center">
+            <select class="form-control" style="width:auto;font-size:0.8125rem;padding:8px 14px" onchange="sortFranchises(this.value)">
+              <option value="featured">Featured First</option>
+              <option value="investment-asc">Investment: Low to High</option>
+              <option value="investment-desc">Investment: High to Low</option>
+              <option value="rating">Highest Rated</option>
+              <option value="newest">Newest First</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Franchise Cards Grid -->
+        <div id="franchise-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(308px,1fr));gap:20px">
+          <!-- Populated by franchises.js -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /franchises-view -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
      ABOUT VIEW
 ════════════════════════════════════════════════════════════════ -->
 <div class="view" id="about-view">
@@ -966,6 +1047,14 @@
   </div>
 </div>
 
+<!-- Franchise Detail Modal -->
+<div class="modal-overlay" id="franchise-modal">
+  <div class="modal modal-xl" style="max-height:92vh;overflow-y:auto;padding:0">
+    <button class="modal-close" onclick="closeModal('franchise-modal')" style="position:absolute;top:16px;right:16px;z-index:10;background:rgba(255,255,255,0.2);color:white">✕</button>
+    <div id="franchise-modal-body"></div>
+  </div>
+</div>
+
 <!-- Toast Container -->
 <div id="toast-container"></div>
 
@@ -992,17 +1081,14 @@
 <script src="js/data.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/projects.js"></script>
+<script src="js/franchises.js"></script>
 <script src="js/dashboard.js"></script>
 <script src="js/app.js"></script>
 <script>
-  // Expose helpers
   function handleContactForm(e) {
     e.preventDefault();
     showToast('Message sent! We\'ll get back to you within 24 hours. 📬', 'success');
     e.target.reset();
-  }
-  function navigateTo(view) {
-    window.navigateTo(view);
   }
 </script>
 </body>

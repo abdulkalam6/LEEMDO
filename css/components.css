@@ -172,6 +172,7 @@
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -181,6 +182,7 @@
   color: var(--text-muted);
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.6;
@@ -939,4 +941,376 @@ select.form-control {
   line-height: 1.75;
   border-top: 1px solid var(--border-light);
   padding-top: var(--space-4);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FRANCHISE CARDS
+══════════════════════════════════════════════════════════════ */
+.franchise-card {
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1.5px solid var(--border-light);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  cursor: pointer;
+  transition: var(--transition-slow);
+  position: relative;
+  overflow: hidden;
+}
+.franchise-card:hover {
+  border-color: var(--primary-lighter);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-5px);
+}
+.franchise-card.featured {
+  border-color: var(--primary-200);
+  background: linear-gradient(145deg, var(--white) 0%, var(--primary-100) 100%);
+}
+.franchise-card.featured:hover {
+  border-color: var(--primary);
+}
+
+.franchise-featured-ribbon {
+  position: absolute;
+  top: 14px;
+  right: -28px;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 36px;
+  transform: rotate(35deg);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(46,125,50,0.4);
+}
+
+.franchise-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.franchise-icon-wrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: var(--gradient-green);
+  border: 1.5px solid var(--primary-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.franchise-card-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.franchise-card-sector {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.franchise-card-tagline {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.franchise-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  border: 1px solid var(--border-light);
+}
+
+.franchise-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3px;
+}
+
+.franchise-metric-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.franchise-metric-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  line-height: 1.2;
+}
+
+.franchise-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.franchise-highlight-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  background: var(--primary-100);
+  border: 1px solid var(--primary-200);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 0.6rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.franchise-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid var(--border-light);
+  padding-top: 14px;
+  margin-top: auto;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FRANCHISE MODAL
+══════════════════════════════════════════════════════════════ */
+.modal-xl { max-width: 900px !important; }
+
+.franchise-modal-hero {
+  background: var(--gradient-hero);
+  padding: 32px;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.franchise-modal-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.franchise-modal-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  flex-shrink: 0;
+}
+
+.franchise-modal-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-lg);
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.franchise-modal-stat {
+  flex: 1;
+  text-align: center;
+  padding: 16px 12px;
+}
+
+.franchise-modal-stat-val {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.franchise-modal-stat-lbl {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.franchise-modal-stat-div {
+  width: 1px;
+  background: rgba(255,255,255,0.15);
+  align-self: stretch;
+}
+
+.franchise-modal-content {
+  padding: 28px;
+}
+
+.franchise-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .franchise-modal-grid { grid-template-columns: 1fr; }
+}
+
+.franchise-modal-section {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-light);
+}
+.franchise-modal-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.franchise-modal-section-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.franchise-modal-highlights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.franchise-modal-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.franchise-modal-highlight-check {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.franchise-modal-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.franchise-req-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.franchise-req-item:last-child { border-bottom: none; }
+
+.franchise-req-key {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.franchise-req-val {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.franchise-cta-card {
+  background: var(--gradient-green);
+  border: 1.5px solid var(--primary-200);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  text-align: center;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FRANCHISE STATS BAR
+══════════════════════════════════════════════════════════════ */
+.franchise-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background: var(--primary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.franchise-stats-bar-item {
+  padding: 20px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+.franchise-stats-bar-item:last-child { border-right: none; }
+
+.franchise-stats-bar-val {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.franchise-stats-bar-lbl {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.65);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+@media (max-width: 768px) {
+  .franchise-stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .franchise-stats-bar-item { border-bottom: 1px solid rgba(255,255,255,0.15); }
+  .franchise-modal-highlights-grid { grid-template-columns: 1fr; }
+  .franchise-metrics { grid-template-columns: repeat(3, 1fr); }
 }

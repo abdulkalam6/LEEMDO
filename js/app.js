@@ -9,7 +9,7 @@ window.app = {
 };
 
 // ── View Definitions ─────────────────────────────────────────────
-const VIEWS = ['home', 'projects', 'dashboard', 'about', 'contact'];
+const VIEWS = ['home', 'projects', 'franchises', 'dashboard', 'about', 'contact'];
 
 // ── Navigate ─────────────────────────────────────────────────────
 function navigateTo(view, pushState = true) {
@@ -60,6 +60,10 @@ function navigateTo(view, pushState = true) {
   if (view === 'projects') {
     initProjectFilters();
     renderProjects();
+  }
+
+  if (view === 'franchises') {
+    initFranchises();
   }
 
   if (view === 'dashboard') {
@@ -142,21 +146,15 @@ function handleLogout() {
 }
 
 function updateAuthUI() {
-  const loginBtnDesktop  = document.getElementById('nav-login-btn');
-  const loginBtnMobile   = document.getElementById('mobile-login-btn');
-  const userPillDesktop  = document.getElementById('nav-user-pill');
-  const userPillMobile   = document.getElementById('mobile-user-pill');
-  const userNameEl       = document.getElementById('user-pill-name');
+  const userPillDesktop = document.getElementById('nav-user-pill');
+  const userPillMobile  = document.getElementById('mobile-user-pill');
+  const userNameEl      = document.getElementById('user-pill-name');
 
   if (window.app.isLoggedIn && window.app.currentUser) {
-    if (loginBtnDesktop) loginBtnDesktop.style.display = 'none';
-    if (loginBtnMobile)  loginBtnMobile.style.display  = 'none';
     if (userPillDesktop) userPillDesktop.style.display = 'flex';
     if (userPillMobile)  userPillMobile.style.display  = 'flex';
     if (userNameEl) userNameEl.textContent = window.app.currentUser.name.split(' ')[0];
   } else {
-    if (loginBtnDesktop) loginBtnDesktop.style.display = '';
-    if (loginBtnMobile)  loginBtnMobile.style.display  = '';
     if (userPillDesktop) userPillDesktop.style.display = 'none';
     if (userPillMobile)  userPillMobile.style.display  = 'none';
   }
