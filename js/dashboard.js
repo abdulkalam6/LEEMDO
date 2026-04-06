@@ -337,7 +337,7 @@ function renderDashMyProjects() {
   panel.innerHTML = `
     <div class="dash-header">
       <div><h1>My Posted Projects</h1><p>Manage your active campaign listings</p></div>
-      <button class="btn btn-primary btn-sm" onclick="openModal('post-project-modal')">+ Post Project</button>
+      <button class="btn btn-primary btn-sm" onclick="openModal('contact-whatsapp-modal')">+ Contact Us</button>
     </div>
 
     <div style="display:flex;flex-direction:column;gap:16px">
