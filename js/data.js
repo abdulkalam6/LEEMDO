@@ -292,13 +292,94 @@ const PROJECTS = [
     postedDate: "2026-04-03",
     applications: 26,
     active: true
+  },
+
+  // ── IT Projects ──────────────────────────────────────────────
+  {
+    id: 12,
+    title: "AI Chatbot Integration for E-Retailer",
+    category: "IT Projects",
+    type: "it",
+    country: "US",
+    flag: "🇺🇸",
+    industry: "Technology",
+    payout_type: "Fixed",
+    payout: "$12,000 – $25,000",
+    icon: "🤖",
+    badge: "badge-purple",
+    featured: true,
+    description: "Develop and integrate a custom AI-driven customer support chatbot for a large US-based e-commerce platform. Must handle multi-language support and integrate with Shopify/Zendesk API.",
+    requirements: {
+      developers: "2–3 senior devs",
+      experience: "2+ years in LLM/AI development",
+      tools: "OpenAI API / Python / Node.js",
+      timeline: "3 months milestone-based",
+      compliance: "SOC2 Audit | GDPR Data Encryption"
+    },
+    tags: ["AI", "Chatbot", "IT Projects", "Fixed"],
+    postedDate: "2026-04-05",
+    applications: 14,
+    active: true
+  },
+  {
+    id: 13,
+    title: "Cloud Migration (AWS/Azure) for Fintech",
+    category: "IT Projects",
+    type: "it",
+    country: "UK",
+    flag: "🇬🇧",
+    industry: "Finance",
+    payout_type: "Fixed",
+    payout: "£8,000 – £15,000",
+    icon: "☁️",
+    badge: "badge-blue",
+    featured: false,
+    description: "Leading a complete cloud migration for a UK fintech firm. Move legacy on-premise servers to AWS/Azure with zero downtime. Focus on security, scalability, and disaster recovery.",
+    requirements: {
+      architects: "1–2 Cloud Architects",
+      experience: "AWS/Azure Certified Solutions Architect",
+      tools: "Terraform / Kubernetes / Docker",
+      timeline: "4–6 months",
+      compliance: "FCA Compliant | ISO 27001"
+    },
+    tags: ["Cloud", "Migration", "DevOps", "IT Projects"],
+    postedDate: "2026-04-02",
+    applications: 6,
+    active: true
+  },
+  {
+    id: 14,
+    title: "Cybersecurity Audit — Healthcare Network",
+    category: "IT Projects",
+    type: "it",
+    country: "US",
+    flag: "🇺🇸",
+    industry: "Healthcare",
+    payout_type: "Fixed",
+    payout: "$15,000 per Audit",
+    icon: "🛡️",
+    badge: "badge-teal",
+    featured: true,
+    description: "Conduct a comprehensive cybersecurity audit for a regional healthcare provider network. Identify vulnerabilities, perform penetration testing, and provide HIPAA-compliant remediation strategy.",
+    requirements: {
+      auditors: "2–3 Certified Ethical Hackers",
+      experience: "5+ years in Cybersecurity / Pen Testing",
+      tools: "Nessus / Kali Linux / Burp Suite",
+      timeline: "30-day intensive audit",
+      compliance: "HIPAA Audit Standard | HITRUST aware"
+    },
+    tags: ["Cybersecurity", "Audit", "Healthcare", "HIPAA"],
+    postedDate: "2026-03-29",
+    applications: 11,
+    active: true
   }
 ];
 
 const CATEGORIES = [
-  { id: "all",       label: "All Projects",  count: 11 },
+  { id: "all",       label: "All Projects",  count: 14 },
   { id: "voice",     label: "Voice",         count: 8 },
-  { id: "non-voice", label: "Non-Voice",     count: 3 }
+  { id: "non-voice", label: "Non-Voice",     count: 3 },
+  { id: "it",        label: "IT Projects",   count: 3 }
 ];
 
 const COUNTRIES = [
@@ -431,6 +512,10 @@ const FAQ_ITEMS = [
   {
     question: "Can I post projects as a client?",
     answer: "Absolutely. Register as a Project Provider, choose a plan, and post your campaign with full requirements, payout details, and compliance info. Your listing will be reviewed and published within 24 hours."
+  },
+  {
+    question: "Do you offer specific IT service projects?",
+    answer: "Yes, LEEMDO explicitly lists IT projects such as Software Development, Cloud Infrastructure, AI Integration, and Cybersecurity Audits. We connect IT firms and developers with verified enterprise-level technology projects worldwide."
   }
 ];
 

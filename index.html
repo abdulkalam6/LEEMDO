@@ -37,7 +37,7 @@
       <nav class="nav-links" role="navigation">
         <span class="nav-link" data-view="home"       onclick="navigateTo('home')">Home</span>
         <span class="nav-link" data-view="franchises" onclick="navigateTo('franchises')">Franchises</span>
-        <span class="nav-link" onclick="navigateTo('home');setTimeout(()=>document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'}),300)">Investors &amp; Buyers</span>
+        <span class="nav-link" data-view="careers"    onclick="navigateTo('careers')">Careers</span>
         <span class="nav-link" data-view="about"      onclick="navigateTo('about')">About Us</span>
         <span class="nav-link" data-view="services"   onclick="navigateTo('home');setTimeout(()=>document.getElementById('featured-section').scrollIntoView({behavior:'smooth'}),300)">Services</span>
       </nav>
@@ -68,7 +68,7 @@
   <div class="mobile-nav-inner">
     <button class="mobile-nav-link" data-view="home"     onclick="navigateTo('home')">🏠 Home</button>
     <button class="mobile-nav-link" data-view="franchises" onclick="navigateTo('franchises')">📂 Franchises</button>
-    <button class="mobile-nav-link" onclick="navigateTo('home');setTimeout(()=>document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'}),300)">💼 Investors &amp; Buyers</button>
+    <button class="mobile-nav-link" data-view="careers"    onclick="navigateTo('careers')">💼 Carrers</button>
     <button class="mobile-nav-link" data-view="about"   onclick="navigateTo('about')">ℹ️ About Us</button>
     <div class="mobile-nav-divider"></div>
     <div class="mobile-nav-cta" style="grid-template-columns:1fr">
@@ -459,6 +459,10 @@
           <div class="faq-answer"><div class="faq-answer-inner">We list Voice campaigns (telemarketing, appointment setting, insurance, healthcare) and Non-Voice projects (data processing, chat support, EPUB conversion). Both US and UK markets are covered across 8+ industries.</div></div>
         </div>
         <div class="faq-item">
+          <button class="faq-question">Do you offer specific IT service projects? <div class="faq-icon">+</div></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes, LEEMDO explicitly lists IT projects such as Software Development, Cloud Infrastructure, AI Integration, and Cybersecurity Audits. We connect IT firms and developers with verified enterprise-level technology projects worldwide.</div></div>
+        </div>
+        <div class="faq-item">
           <button class="faq-question">How are payouts handled? <div class="faq-icon">+</div></button>
           <div class="faq-answer"><div class="faq-answer-inner">Payouts are negotiated directly between providers and call centers. LEEMDO facilitates the connection and provides escrow services for Premium members. CPL, CPA, fixed rate, and commission structures are all supported.</div></div>
         </div>
@@ -718,10 +722,12 @@
               <div class="about-stat-num">2023</div>
               <div class="about-stat-lbl">Founded</div>
             </div>
+            <div class="about-divider-v"></div>
             <div class="about-stat-item">
               <div class="about-stat-num">48</div>
               <div class="about-stat-lbl">Countries</div>
             </div>
+            <div class="about-divider-v"></div>
             <div class="about-stat-item">
               <div class="about-stat-num">$2M+</div>
               <div class="about-stat-lbl">Payouts</div>
@@ -731,7 +737,7 @@
 
         <!-- Right: Mission card -->
         <div class="card reveal about-mission-card">
-          <img src="assets/img/logo.jpeg" alt="LEEMDO" class="about-mission-logo" />
+          <img src="assets/img/logo.jpeg" alt="LEEMDO" class="about-mission-logo" style="width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:16px;border:2px solid var(--primary-100)" />
           <h3 class="about-mission-title">Our Mission</h3>
           <p class="about-mission-text">To democratize access to global BPO opportunities — making it possible for any quality call center, anywhere in the world, to connect with verified, high-paying campaigns.</p>
         </div>
@@ -769,6 +775,73 @@
   </section>
 
 </div><!-- /about-view -->
+ 
+ 
+ <!-- ═══════════════════════════════════════════════════════════════
+      CAREERS VIEW
+ ════════════════════════════════════════════════════════════════ -->
+ <div class="view" id="careers-view">
+   <div class="page-hero">
+     <div class="container">
+       <div class="page-hero-inner">
+         <div class="hero-label" style="margin:0 auto 16px">🚀 Build the Future</div>
+         <h1>Careers at LEEMDO</h1>
+         <p>Join our mission to democratize global BPO & IT opportunities.</p>
+       </div>
+     </div>
+   </div>
+ 
+   <section class="section">
+     <div class="container">
+       <div class="section-header">
+         <div class="label">💼 Current Openings</div>
+         <h2>Join Our Growing Team</h2>
+         <p>We are looking for passionate individuals to help us scale the LEEMDO marketplace.</p>
+       </div>
+ 
+       <div class="grid-3">
+         <!-- Business Freelancer -->
+         <div class="card reveal" style="padding:32px">
+           <div style="font-size:2rem;margin-bottom:16px">🌐</div>
+           <h3 style="font-size:1.25rem;margin-bottom:8px">Business Freelancer</h3>
+           <p style="font-size:0.875rem;margin-bottom:20px;color:var(--text-muted)">Help us expand our marketplace by onboarding new BPO and IT partners globally. Flexible, performance-based role.</p>
+           <ul style="font-size:0.8125rem;color:var(--text-secondary);margin-bottom:24px;list-style:none;padding:0">
+             <li style="margin-bottom:8px">✓ Global lead generation</li>
+             <li style="margin-bottom:8px">✓ Partner relationship management</li>
+             <li style="margin-bottom:8px">✓ 100% Remote & Flexible</li>
+           </ul>
+           <button class="btn btn-primary btn-sm" style="width:100%" onclick="openModal('contact-whatsapp-modal')">Apply via WhatsApp</button>
+         </div>
+ 
+         <!-- BDE -->
+         <div class="card reveal reveal-delay-2" style="padding:32px">
+           <div style="font-size:2rem;margin-bottom:16px">📈</div>
+           <h3 style="font-size:1.25rem;margin-bottom:8px">Business Development Executive (BDE)</h3>
+           <p style="font-size:0.875rem;margin-bottom:20px;color:var(--text-muted)">Drive growth by identifying new project opportunities and connecting them with our verified service providers.</p>
+           <ul style="font-size:0.8125rem;color:var(--text-secondary);margin-bottom:24px;list-style:none;padding:0">
+             <li style="margin-bottom:8px">✓ Strategic client outreach</li>
+             <li style="margin-bottom:8px">✓ Campaign analysis & matching</li>
+             <li style="margin-bottom:8px">✓ Competitive salary + incentives</li>
+           </ul>
+           <button class="btn btn-primary btn-sm" style="width:100%" onclick="openModal('contact-whatsapp-modal')">Apply via WhatsApp</button>
+         </div>
+ 
+         <!-- BDM -->
+         <div class="card reveal reveal-delay-4" style="padding:32px">
+           <div style="font-size:2rem;margin-bottom:16px">🏆</div>
+           <h3 style="font-size:1.25rem;margin-bottom:8px">Business Development Manager (BDM)</h3>
+           <p style="font-size:0.875rem;margin-bottom:20px;color:var(--text-muted)">Lead our business development strategy and manage high-level partnerships with international enterprises.</p>
+           <ul style="font-size:0.8125rem;color:var(--text-secondary);margin-bottom:24px;list-style:none;padding:0">
+             <li style="margin-bottom:8px">✓ Team leadership & mentorship</li>
+             <li style="margin-bottom:8px">✓ Key account management</li>
+             <li style="margin-bottom:8px">✓ High-growth equity potential</li>
+           </ul>
+           <button class="btn btn-primary btn-sm" style="width:100%" onclick="openModal('contact-whatsapp-modal')">Apply via WhatsApp</button>
+         </div>
+       </div>
+     </div>
+   </section>
+ </div><!-- /careers-view -->
 
 
 
@@ -801,7 +874,7 @@
           </div>
           <div class="form-group">
             <label class="form-label">Subject</label>
-            <select class="form-control" id="contact-subject">
+            <select class="form-control" id="contact-subject" title="Select a subject for your inquiry">
               <option>General Inquiry</option>
               <option>Partnership / Listing</option>
               <option>Technical Support</option>
@@ -839,7 +912,7 @@
             <div style="font-size:1.5rem;background:var(--primary-100);width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🌍</div>
             <div>
               <div style="font-size:0.75rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Headquarters</div>
-              <div style="font-weight:600;color:var(--text-primary)">Global · Remote-First</div>
+              <div style="font-weight:600;color:var(--text-primary);font-size:0.9rem">RMZ Millenia Business Park II, 10th Flr,<br>Perungudi, Chennai 600096</div>
             </div>
           </div>
         </div>
@@ -889,17 +962,17 @@
         <div class="footer-links">
           <span class="footer-link" onclick="navigateTo('about')">About Us</span>
           <span class="footer-link" onclick="navigateTo('contact')">Contact</span>
-          <span class="footer-link">Blog</span>
-          <span class="footer-link">Careers</span>
+          <span class="footer-link" onclick="showToast('Blog coming soon!','info')">Blog</span>
+          <span class="footer-link" onclick="navigateTo('careers')">Careers</span>
         </div>
       </div>
 
-      <div class="footer-col">
+      <div class="footer-col" lands="support">
         <h4>Support</h4>
         <div class="footer-links">
           <span class="footer-link" onclick="navigateTo('home');setTimeout(()=>document.getElementById('faq-container').scrollIntoView({behavior:'smooth'}),300)">FAQ</span>
-          <span class="footer-link">Help Center</span>
-          <span class="footer-link">Compliance</span>
+          <span class="footer-link" onclick="openModal('contact-whatsapp-modal')">Help Center</span>
+          <span class="footer-link" onclick="navigateTo('about')">Compliance</span>
           <span class="footer-link" onclick="navigateTo('contact')">Report Issue</span>
         </div>
       </div>
@@ -908,7 +981,7 @@
   <div style="background:rgba(0,0,0,0.2)">
     <div class="container">
       <div class="footer-bottom">
-        <span>© 2026 LEEMDO Project Cart. All rights reserved.</span>
+        <span>© 2026 LEEMDO Project Cart. Registered Office: Perungudi, Chennai.</span>
         <div class="footer-bottom-links">
           <span class="footer-bottom-link">Privacy Policy</span>
           <span class="footer-bottom-link">Terms of Service</span>
@@ -963,7 +1036,7 @@
       <form id="signup-form" style="display:none" onsubmit="handleSignup(event)">
         <div class="form-group">
           <label class="form-label">Role</label>
-          <select class="form-control">
+          <select class="form-control" title="Select your role">
             <option>🎙️ Service Provider (Call Center / BPO)</option>
             <option>📋 Project Provider (Client / Campaign Owner)</option>
           </select>
@@ -1024,7 +1097,7 @@
         </div>
         <div class="form-group" style="margin-bottom:14px">
           <label class="form-label">Service Interest</label>
-          <select class="form-control" id="wa-service">
+          <select class="form-control" id="wa-service" title="Select your service interest">
             <option>BPO / Call Center Projects</option>
             <option>IT Services &amp; Software</option>
             <option>Franchise Opportunities</option>

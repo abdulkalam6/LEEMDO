@@ -9,7 +9,7 @@ window.app = {
 };
 
 // ── View Definitions ─────────────────────────────────────────────
-const VIEWS = ['home', 'projects', 'franchises', 'dashboard', 'about', 'contact'];
+const VIEWS = ['home', 'projects', 'franchises', 'dashboard', 'about', 'contact', 'careers'];
 
 // ── Navigate ─────────────────────────────────────────────────────
 function navigateTo(view, pushState = true) {
@@ -74,6 +74,10 @@ function navigateTo(view, pushState = true) {
   if (view === 'home') {
     renderFeaturedProjects();
     initCounters();
+    refreshScrollReveal();
+  }
+
+  if (view === 'careers') {
     refreshScrollReveal();
   }
 

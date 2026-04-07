@@ -151,13 +151,16 @@ function renderFilterSidebar() {
       <div class="filter-title">📂 Type</div>
       <div class="filter-options">
         <div class="filter-option active" data-filter-all data-filter="type" data-val="all" onclick="setFilter('type','all',this)">
-          All Types <span class="filter-count">11</span>
+          All Types <span class="filter-count">14</span>
         </div>
         <div class="filter-option" data-filter="type" data-val="voice" onclick="setFilter('type','voice',this)">
           🎙️ Voice <span class="filter-count">8</span>
         </div>
         <div class="filter-option" data-filter="type" data-val="non-voice" onclick="setFilter('type','non-voice',this)">
           💬 Non-Voice <span class="filter-count">3</span>
+        </div>
+        <div class="filter-option" data-filter="type" data-val="it" onclick="setFilter('type','it',this)">
+          🖥️ IT Projects <span class="filter-count">3</span>
         </div>
       </div>
     </div>

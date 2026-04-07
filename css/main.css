@@ -93,8 +93,8 @@
   --text-6xl:    3.75rem;
 
   /* Transitions */
-  --transition:  all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition:  all 0.3s ease;
+  --transition-slow: all 0.5s ease;
 
   /* Layout */
   --container:   1280px;
