@@ -97,9 +97,9 @@
     <div class="hero-glow-2"></div>
 
     <div class="container" style="position:relative;z-index:1">
-      <div style="display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;min-height:calc(100vh - 72px)">
+      <div class="hero-grid-wrap">
         <!-- Left -->
-        <div class="hero-content" style="max-width:100%;padding:60px 0">
+        <div class="hero-content">
           <div class="hero-label">🌍 #1 BPO, Call Center &amp; IT Services Marketplace</div>
           <h1>Find <em>High-Paying</em> BPO, IT &amp; Call Center Projects</h1>
           <p class="hero-sub">Connect with verified international campaigns and scale your outsourcing business — Voice, Non-Voice, IT Services, and digital service campaigns on demand.</p>
@@ -135,7 +135,7 @@
         </div>
 
         <!-- Right — Card Stack -->
-        <div class="hero-card-stack" style="display:flex;flex-direction:column;gap:12px;padding:20px">
+        <div class="hero-card-stack">
           <div class="hero-card-item">
             <div class="hero-card-row">
               <span style="font-size:1.2rem">☀️</span>
@@ -477,7 +477,7 @@
         <div class="label" style="background:rgba(255,255,255,0.15);color:white;margin:0 auto var(--space-5) auto;display:inline-flex">🚀 Get Started Today</div>
         <h2 style="font-size:clamp(1.75rem,4vw,3rem);margin-bottom:16px;color:white">Ready to Scale Your BPO or IT Business?</h2>
         <p style="color:rgba(255,255,255,0.75);font-size:1.125rem;max-width:560px;margin:0 auto 36px">Join 1,200+ verified call centers, IT firms, and BPO providers already winning campaigns on LEEMDO.</p>
-        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <div class="cta-actions">
           <button class="btn btn-white btn-lg" onclick="navigateTo('projects')">Browse Projects</button>
           <button class="btn btn-secondary btn-lg" onclick="openModal('contact-whatsapp-modal')">💬 Contact Us</button>
         </div>
@@ -646,7 +646,7 @@
     </div>
 
     <!-- Layout: Sidebar + Grid -->
-    <div style="display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:start">
+    <div class="franchise-layout">
 
       <!-- Filter Sidebar -->
       <aside class="filter-sidebar" id="franchise-sidebar">
@@ -690,6 +690,8 @@
      ABOUT VIEW
 ════════════════════════════════════════════════════════════════ -->
 <div class="view" id="about-view">
+
+  <!-- Hero Banner -->
   <div class="page-hero">
     <div class="container">
       <div class="page-hero-inner">
@@ -699,58 +701,75 @@
       </div>
     </div>
   </div>
-  <div class="container section">
-    <div class="grid-2" style="align-items:center;gap:60px;margin-bottom:64px">
-      <div class="reveal">
-        <div class="label" style="display:inline-flex;margin-bottom:16px">🏢 Who We Are</div>
-        <h2 style="margin-bottom:16px">The Premier Marketplace for BPO &amp; IT Services</h2>
-        <p style="margin-bottom:16px">LEEMDO Project Cart is a premium B2B marketplace built for the outsourcing industry. We bridge the gap between international project providers and skilled call centers, BPO operations, and IT service providers across the globe.</p>
-        <p style="margin-bottom:24px">Founded on the belief that quality outsourcing partnerships should be accessible, transparent, and scalable — we provide the infrastructure for BPO and IT businesses to thrive in a competitive market.</p>
-        <div style="display:flex;gap:20px;flex-wrap:wrap">
-          <div style="text-align:center">
-            <div style="font-size:2rem;font-weight:800;color:var(--primary)">2023</div>
-            <div style="font-size:0.8125rem;color:var(--text-muted)">Founded</div>
-          </div>
-          <div style="text-align:center">
-            <div style="font-size:2rem;font-weight:800;color:var(--primary)">48</div>
-            <div style="font-size:0.8125rem;color:var(--text-muted)">Countries</div>
-          </div>
-          <div style="text-align:center">
-            <div style="font-size:2rem;font-weight:800;color:var(--primary)">$2M+</div>
-            <div style="font-size:0.8125rem;color:var(--text-muted)">Payouts</div>
+
+  <!-- Who We Are + Mission -->
+  <section class="section about-who-section">
+    <div class="container">
+      <div class="about-intro-grid">
+
+        <!-- Left: Text content -->
+        <div class="reveal about-text-col">
+          <div class="label about-label">🏢 Who We Are</div>
+          <h2 class="about-heading">The Premier Marketplace for BPO &amp; IT Services</h2>
+          <p class="about-para">LEEMDO Project Cart is a premium B2B marketplace built for the outsourcing industry. We bridge the gap between international project providers and skilled call centers, BPO operations, and IT service providers across the globe.</p>
+          <p class="about-para">Founded on the belief that quality outsourcing partnerships should be accessible, transparent, and scalable — we provide the infrastructure for BPO and IT businesses to thrive in a competitive market.</p>
+          <div class="about-stats-row">
+            <div class="about-stat-item">
+              <div class="about-stat-num">2023</div>
+              <div class="about-stat-lbl">Founded</div>
+            </div>
+            <div class="about-stat-item">
+              <div class="about-stat-num">48</div>
+              <div class="about-stat-lbl">Countries</div>
+            </div>
+            <div class="about-stat-item">
+              <div class="about-stat-num">$2M+</div>
+              <div class="about-stat-lbl">Payouts</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="card reveal" style="padding:40px">
-        <img src="assets/img/logo.jpeg" alt="LEEMDO" style="width:120px;margin:0 auto 24px;display:block" />
-        <h3 style="text-align:center;margin-bottom:12px">Our Mission</h3>
-        <p style="text-align:center;font-size:0.9375rem">To democratize access to global BPO opportunities — making it possible for any quality call center, anywhere in the world, to connect with verified, high-paying campaigns.</p>
-      </div>
-    </div>
 
-    <div class="section-header">
-      <div class="label">💡 Our Values</div>
-      <h2>What We Stand For</h2>
-    </div>
-    <div class="grid-3">
-      <div class="card reveal" style="padding:28px;text-align:center">
-        <div style="font-size:2.5rem;margin-bottom:12px">🌱</div>
-        <h3 style="font-size:1rem;margin-bottom:8px">Growth</h3>
-        <p style="font-size:0.875rem">We grow alongside our partners — celebrating every campaign won and milestone achieved.</p>
-      </div>
-      <div class="card reveal reveal-delay-2" style="padding:28px;text-align:center">
-        <div style="font-size:2.5rem;margin-bottom:12px">🔒</div>
-        <h3 style="font-size:1rem;margin-bottom:8px">Trust</h3>
-        <p style="font-size:0.875rem">Every listing, every partner, every transaction — built on verified trust and compliance.</p>
-      </div>
-      <div class="card reveal reveal-delay-4" style="padding:28px;text-align:center">
-        <div style="font-size:2.5rem;margin-bottom:12px">🤝</div>
-        <h3 style="font-size:1rem;margin-bottom:8px">Connection</h3>
-        <p style="font-size:0.875rem">The right project with the right team creates extraordinary results. We make that happen.</p>
+        <!-- Right: Mission card -->
+        <div class="card reveal about-mission-card">
+          <img src="assets/img/logo.jpeg" alt="LEEMDO" class="about-mission-logo" />
+          <h3 class="about-mission-title">Our Mission</h3>
+          <p class="about-mission-text">To democratize access to global BPO opportunities — making it possible for any quality call center, anywhere in the world, to connect with verified, high-paying campaigns.</p>
+        </div>
+
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Our Values -->
+  <section class="section section-alt about-values-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="label">💡 Our Values</div>
+        <h2>What We Stand For</h2>
+        <p>The principles that guide everything we do at LEEMDO</p>
+      </div>
+      <div class="about-values-grid">
+        <div class="about-value-card reveal">
+          <div class="about-value-icon">🌱</div>
+          <h3 class="about-value-title">Growth</h3>
+          <p class="about-value-text">We grow alongside our partners — celebrating every campaign won and milestone achieved.</p>
+        </div>
+        <div class="about-value-card reveal reveal-delay-2">
+          <div class="about-value-icon">🔒</div>
+          <h3 class="about-value-title">Trust</h3>
+          <p class="about-value-text">Every listing, every partner, every transaction — built on verified trust and compliance.</p>
+        </div>
+        <div class="about-value-card reveal reveal-delay-4">
+          <div class="about-value-icon">🤝</div>
+          <h3 class="about-value-title">Connection</h3>
+          <p class="about-value-text">The right project with the right team creates extraordinary results. We make that happen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </div><!-- /about-view -->
+
 
 
 <!-- ═══════════════════════════════════════════════════════════════

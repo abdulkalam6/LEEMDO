@@ -2162,3 +2162,320 @@
   transition: var(--transition);
 }
 .footer-bottom-link:hover { color: rgba(255,255,255,0.7); }
+
+/* ══════════════════════════════════════════════════════════════
+   HERO GRID LAYOUT
+══════════════════════════════════════════════════════════════ */
+.hero-grid-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  min-height: calc(100vh - var(--nav-height));
+}
+
+/* Hero content block */
+.hero-content {
+  max-width: 100%;
+  padding: 60px 0;
+}
+
+/* Hero card stack — desktop visible */
+.hero-card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CTA BANNER ACTIONS
+══════════════════════════════════════════════════════════════ */
+.cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FRANCHISE VIEW LAYOUT
+══════════════════════════════════════════════════════════════ */
+.franchise-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ABOUT SECTION
+══════════════════════════════════════════════════════════════ */
+.about-intro-grid {
+  align-items: center;
+  gap: 60px;
+}
+
+.about-stats-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE OVERRIDES — max-width: 768px
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Hero ── */
+  .hero-grid-wrap {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 0;
+  }
+
+  .hero-content {
+    padding: 40px 0 32px;
+    text-align: center;
+  }
+
+  /* Allow hero label to wrap on very small screens */
+  .hero-label {
+    margin-left: auto;
+    margin-right: auto;
+    white-space: normal;
+    text-align: center;
+    max-width: 100%;
+    font-size: 0.75rem;
+  }
+
+  .hero-sub {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Prevent any heading overflow */
+  h1, h2, h3 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .hero-stat {
+    align-items: center;
+  }
+
+  .hero-divider { display: none; }
+
+  /* hide card stack on mobile */
+  .hero-card-stack { display: none; }
+
+  /* ── Stats Banner (section-dark) ── */
+  .section-dark .grid-4,
+  .section-dark .grid-3,
+  .section-dark .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+
+  /* ── CTA Actions ── */
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  /* ── Franchise Layout ── */
+  .franchise-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .franchise-layout .filter-sidebar {
+    display: none;
+  }
+
+  .franchise-layout .filter-sidebar.show {
+    display: block;
+    position: static;
+    max-height: none;
+  }
+
+  /* ── About page ── */
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about-mission-card {
+    padding: 28px 20px;
+  }
+
+  .about-stats-row {
+    justify-content: center;
+    gap: 20px;
+    padding-top: 16px;
+  }
+
+  .about-values-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-value-card {
+    padding: 28px 20px;
+  }
+
+  .about-value-card:hover {
+    transform: none;
+  }
+
+  /* ── Section spacing on mobile ── */
+  .section { padding: var(--space-12) 0; }
+
+  /* Reduce section-header margin */
+  .section-header { margin-bottom: var(--space-8); }
+
+  /* ── Brands bar ── */
+  .brands-inner {
+    justify-content: flex-start;
+    gap: var(--space-5);
+    padding: 0 var(--space-4) var(--space-2);
+  }
+
+  /* ── How It Works ── */
+  .how-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .step-card,
+  .step-card:first-child,
+  .step-card:last-child {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    padding: 28px 20px;
+  }
+
+  .step-connector,
+  .how-connector { display: none; }
+
+  /* ── Featured section grid ── */
+  .grid-auto {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Testimonial / Why grid ── */
+  .grid-3 { grid-template-columns: 1fr; }
+
+  /* ── Pricing grid ── */
+  #pricing-section .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  #pricing-section .pricing-card.featured {
+    transform: none;
+  }
+
+  /* ── FAQ section ── */
+  #faq-container {
+    padding: 0;
+  }
+
+  /* ── Contact grid ── */
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* ── Footer ── */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .footer-bottom-links {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  /* ── Page hero (about, franchises, contact) ── */
+  .page-hero {
+    padding-bottom: 36px;
+  }
+
+  .page-hero-inner {
+    padding-top: 36px;
+  }
+
+  .page-hero-inner p {
+    font-size: 1rem;
+  }
+
+  /* ── Navbar container padding ── */
+  #navbar > .container {
+    padding: 0 var(--space-4);
+  }
+}
+
+/* Small mobile – extra tight */
+@media (max-width: 480px) {
+
+  .hero-content {
+    padding: 32px 0 24px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+
+  /* Stats banner: single column on very small */
+  .section-dark .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-stats-row {
+    gap: 16px;
+  }
+
+  .cta-actions .btn {
+    max-width: 100%;
+  }
+
+  /* Franchise stats bar single column */
+  .franchise-stats-bar {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
