@@ -44,7 +44,7 @@
 
       <!-- Desktop CTA -->
       <div class="nav-cta">
-        <div class="user-pill" id="nav-user-pill" style="display:none" onclick="navigateTo('dashboard')">
+        <div class="user-pill" id="nav-user-pill" style="display:none">
           <div class="user-pill-avatar" id="nav-avatar-initials">AJ</div>
           <span class="user-pill-name" id="user-pill-name">User</span>
         </div>
@@ -77,7 +77,7 @@
         Contact Us on WhatsApp
       </button>
     </div>
-    <div class="user-pill" id="mobile-user-pill" style="display:none;margin-top:8px;justify-content:center" onclick="navigateTo('dashboard');closeHamburger()">
+    <div class="user-pill" id="mobile-user-pill" style="display:none;margin-top:8px;justify-content:center">
       <div class="user-pill-avatar">AJ</div>
       <span class="user-pill-name" style="color:var(--primary)">My Dashboard</span>
     </div>
@@ -947,15 +947,14 @@
         </div>
       </div>
 
-      <div class="footer-col">
-        <h4>Platform</h4>
-        <div class="footer-links">
-          <span class="footer-link" onclick="navigateTo('projects')">Browse Projects</span>
-          <span class="footer-link" onclick="openModal('contact-whatsapp-modal')">Contact Us</span>
-          <span class="footer-link" onclick="navigateTo('home');setTimeout(()=>document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}),300)">Pricing</span>
-          <span class="footer-link" onclick="navigateTo('dashboard')">Dashboard</span>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <div class="footer-links">
+            <span class="footer-link" onclick="navigateTo('projects')">Browse Projects</span>
+            <span class="footer-link" onclick="openModal('contact-whatsapp-modal')">Contact Us</span>
+            <span class="footer-link" onclick="navigateTo('home');setTimeout(()=>document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}),300)">Pricing</span>
+          </div>
         </div>
-      </div>
 
       <div class="footer-col">
         <h4>Company</h4>

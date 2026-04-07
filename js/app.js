@@ -16,13 +16,6 @@ function navigateTo(view, pushState = true) {
   // Validate
   if (!VIEWS.includes(view)) view = 'home';
 
-  // Check dashboard access
-  if (view === 'dashboard' && !window.app.isLoggedIn) {
-    openModal('auth-modal');
-    showToast('Please sign in to access your dashboard', 'info');
-    return;
-  }
-
   // Hide all views
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
 
