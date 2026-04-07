@@ -350,14 +350,39 @@ function openFranchiseDetail(id) {
 }
 
 function applyForFranchise(id, name) {
-  if (!window.app.isLoggedIn) {
-    closeModal('franchise-modal');
-    openModal('auth-modal');
-    showToast('Sign in to apply for franchises', 'info');
-    return;
-  }
   closeModal('franchise-modal');
-  showToast(`\u2705 Application submitted for "${name}"! Our team will contact you within 48 hours.`, 'success');
+  
+  document.getElementById('fa-franchise-id').value = id;
+  document.getElementById('fa-franchise-name').value = name;
+  document.getElementById('franchise-apply-form').reset();
+  
+  openModal('franchise-apply-modal');
+}
+
+function submitFranchiseApplication(e) {
+  e.preventDefault();
+  
+  const franchiseId = document.getElementById('fa-franchise-id').value;
+  const franchiseName = document.getElementById('fa-franchise-name').value;
+  const name = document.getElementById('fa-name').value.trim();
+  const company = document.getElementById('fa-company').value.trim();
+  const email = document.getElementById('fa-email').value.trim();
+  const phone = document.getElementById('fa-phone').value.trim();
+  const investment = document.getElementById('fa-investment').value;
+  const message = document.getElementById('fa-message').value.trim();
+  
+  const phoneNumber = '918438443477';
+  const text = `Hi LEEMDO! I'm interested in the "${franchiseName}" franchise.%0A%0A` +
+    `*Name:* ${name}%0A` +
+    `*Company:* ${company || 'N/A'}%0A` +
+    `*Email:* ${email}%0A` +
+    `*Phone:* ${phone}%0A` +
+    `*Investment Budget:* ${investment}%0A` +
+    `${message ? `%0A*Message:* ${message}` : ''}`;
+  
+  window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+  closeModal('franchise-apply-modal');
+  showToast('Application submitted! Check WhatsApp to complete your inquiry.', 'success');
 }
 
 // ── Sort ──────────────────────────────────────────────────────────
