@@ -67,8 +67,8 @@ function renderProjectCard(project) {
           <span class="payout-label">${project.payout_type} Payout</span>
           <span class="payout-value">${project.payout}</span>
         </div>
-        <button class="btn btn-primary btn-sm" onclick="handleApply(event, ${project.id})">
-          ${isApplied ? '✓ Applied' : 'View Details'}
+        <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();openProjectDetail(${project.id})">
+          View Details
         </button>
       </div>
     </div>
@@ -219,7 +219,6 @@ function openProjectDetail(projectId) {
   const project = PROJECTS.find(p => p.id === projectId);
   if (!project) return;
 
-  const isApplied = appliedProjects.includes(projectId);
   const content = document.getElementById('project-detail-content');
 
   content.innerHTML = `
@@ -278,7 +277,7 @@ function openProjectDetail(projectId) {
 
     <div style="padding-top:20px;border-top:1px solid var(--border-light);display:flex;gap:12px;flex-wrap:wrap">
       <button class="btn btn-primary" id="apply-btn-detail" onclick="handleApply(event, ${project.id})" style="flex:1;min-width:140px">
-        ${isApplied ? '✓ Application Sent' : '🚀 Apply Now'}
+        🚀 Apply Now
       </button>
       <button class="btn btn-outline" onclick="closeModal('project-detail-modal')">Close</button>
     </div>
@@ -291,36 +290,21 @@ function openProjectDetail(projectId) {
 function handleApply(event, projectId) {
   event.stopPropagation();
 
-  const isLoggedIn = window.app && window.app.currentUser;
+  const project = PROJECTS.find(p => p.id === projectId);
+  if (!project) return;
 
-  if (!isLoggedIn) {
-    openModal('auth-modal');
-    showToast('Please sign in to apply for projects', 'info');
-    return;
-  }
+  closeModal('project-detail-modal');
 
-  if (appliedProjects.includes(projectId)) {
-    showToast('You have already applied to this project', 'info');
-    return;
-  }
+  const phone = '918438443477';
+  const text = `Hi LEEMDO! I want to apply for the "${project.title}" project.%0A%0A` +
+    `*Project Details:*%0A` +
+    `Category: ${project.category}%0A` +
+    `Country: ${project.flag} ${project.country}%0A` +
+    `Industry: ${project.industry}%0A` +
+    `Payout: ${project.payout} (${project.payout_type})%0A%0A` +
+    `Please process my application.`;
 
-  appliedProjects.push(projectId);
-  localStorage.setItem('leemdo_applied', JSON.stringify(appliedProjects));
-
-  showToast('🎉 Application submitted successfully!', 'success');
-
-  // Update buttons
-  document.querySelectorAll(`[data-id="${projectId}"] .btn`).forEach(btn => {
-    btn.textContent = '✓ Applied';
-  });
-
-  const applyBtnDetail = document.getElementById('apply-btn-detail');
-  if (applyBtnDetail) {
-    applyBtnDetail.textContent = '✓ Application Sent';
-    applyBtnDetail.disabled = true;
-  }
-
-  renderProjects();
+  window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
 }
 
 // ── Featured Projects for Home ─────────────────────────────────────
