@@ -1202,15 +1202,34 @@ const FRANCHISES = [
     requirements: { space: '300+ sq ft testing lab', team: '5+ QA engineers (manual + automation)', internet: '50 Mbps', experience: 'Software testing or QA background', capital: '$10,000 franchise fee + tools' },
     support: ['ISTQB certification prep', 'Selenium/Appium training', 'Test case templates', 'Client acquisition'],
     campaigns: ['Manual Testing', 'Automated Testing', 'Performance Testing']
+  },
+  {
+    id: 'f23',
+    name: 'US Healthcare Revenue Cycle Management',
+    tagline: 'AI-Powered Medical Billing + Insurance Claim Automation Platform',
+    sector: 'Healthcare / IT', sectorId: 'healthcare',
+    icon: '🏥', badge: 'badge-teal',
+    featured: true, verified: true,
+    country: 'US', flag: '🇺🇸', region: 'North America',
+    investment: { min: 180000, max: 320000, currency: '$', label: '$180K – $320K' },
+    investmentRange: 'over-100k', roi: '18–24 months',
+    model: 'Franchise', seats: '10–40 specialists',
+    rating: 4.8, reviews: 28, established: 2021,
+    territories: ['USA', 'Canada', 'India', 'Philippines'],
+    highlights: ['AI-powered medical billing', 'Insurance claim automation', 'HIPAA compliant', 'High-margin recurring revenue'],
+    about: 'US Healthcare RCM is an AI-powered medical billing and insurance claim automation platform franchise. This solution streamlines the entire revenue cycle — from patient registration and eligibility verification to claim submission, denial management, and payment collection. The platform leverages AI to automatically detect claim errors before submission, reduce denials by up to 40%, and accelerate reimbursements by 30%. Franchisees receive full training on the platform, access to healthcare provider clients, and ongoing technical support.',
+    requirements: { space: '800+ sq ft office', team: '10+ medical billing specialists', internet: '100 Mbps secure connection', experience: 'Healthcare billing or RCM background preferred', capital: '$180,000 minimum + working capital' },
+    support: ['Platform certification training', 'HIPAA compliance certification', 'Healthcare client acquisition', 'Dedicated account manager', 'Ongoing AI model updates'],
+    campaigns: ['Medical Billing Services', 'Insurance Claim Automation', 'Denial Management']
   }
 ];
 
 const FRANCHISE_SECTORS = [
-  { id: 'all',        label: 'All Sectors',          count: 22 },
+  { id: 'all',        label: 'All Sectors',          count: 23 },
   { id: 'bpo',        label: '📞 BPO / Call Center',  count: 3  },
   { id: 'digital',    label: '💻 Digital Services',   count: 2  },
   { id: 'energy',     label: '☀️ Energy / Green',     count: 2  },
-  { id: 'healthcare', label: '🏥 Healthcare',         count: 1  },
+  { id: 'healthcare', label: '🏥 Healthcare',         count: 2  },
   { id: 'legal',      label: '⚖️ Legal',              count: 1  },
   { id: 'insurance',  label: '🛡️ Insurance',          count: 1  },
   { id: 'finance',    label: '🏦 Finance',            count: 1  },
