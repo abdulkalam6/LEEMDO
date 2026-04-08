@@ -34,8 +34,12 @@ function showToast(message, type = 'success', duration = 3000) {
 
 // ── Modal System ─────────────────────────────────────────────────
 function openModal(id) {
+  console.log('openModal called with:', id);
   const overlay = document.getElementById(id);
-  if (!overlay) return;
+  if (!overlay) {
+    console.log('Modal not found:', id);
+    return;
+  }
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
 

@@ -107,8 +107,8 @@
             <button class="btn btn-white btn-lg" onclick="navigateTo('projects')">
               📂 Browse Projects
             </button>
-            <button class="btn btn-secondary btn-lg" onclick="openModal('contact-whatsapp-modal')">
-              💬 Get in Touch
+            <button class="btn btn-secondary btn-lg" onclick="try{openModal('post-project-modal')}catch(e){alert(e.message)}">
+              📢 Post Projects
             </button>
           </div>
           <div class="hero-stats">
@@ -1181,6 +1181,147 @@
   </div>
 </div>
 
+<!-- Post Project Modal -->
+<div class="modal-overlay" id="post-project-modal">
+  <div class="modal modal-lg" style="max-width:600px;max-height:90vh;overflow-y:auto">
+    <div class="modal-header">
+      <h2>📢 Post Your Project</h2>
+      <button class="modal-close" onclick="closeModal('post-project-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="post-project-form" onsubmit="submitPostProject(event)" style="text-align:left">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="form-group">
+            <label class="form-label">Project Title *</label>
+            <input class="form-control" id="pp-title" placeholder="e.g., Solar Appointment Setting" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Industry *</label>
+            <select class="form-control" id="pp-industry" required>
+              <option value="">Select Industry</option>
+              <option>Finance</option>
+              <option>Healthcare</option>
+              <option>Insurance</option>
+              <option>Legal</option>
+              <option>Energy</option>
+              <option>Technology</option>
+              <option>Publishing</option>
+              <option>E-Commerce</option>
+              <option>Education</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="form-group">
+            <label class="form-label">Category *</label>
+            <select class="form-control" id="pp-category" required>
+              <option value="">Select Category</option>
+              <option>Voice</option>
+              <option>Non-Voice</option>
+              <option>IT Projects</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Country *</label>
+            <select class="form-control" id="pp-country" required>
+              <option value="">Select Country</option>
+              <option>US</option>
+              <option>UK</option>
+              <option>Australia</option>
+              <option>Canada</option>
+              <option>India</option>
+              <option>Philippines</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="form-group">
+            <label class="form-label">Payout Type *</label>
+            <select class="form-control" id="pp-payout-type" required>
+              <option value="">Select Payout</option>
+              <option>CPL</option>
+              <option>CPA</option>
+              <option>Commission</option>
+              <option>Fixed Rate</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Payout Amount *</label>
+            <input class="form-control" id="pp-payout" placeholder="e.g., $25 per lead" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Project Description *</label>
+          <textarea class="form-control" id="pp-description" rows="3" placeholder="Describe your project requirements..." required></textarea>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="form-group">
+            <label class="form-label">Team Size Required</label>
+            <input class="form-control" id="pp-team-size" placeholder="e.g., 5-20 agents" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Experience Level</label>
+            <select class="form-control" id="pp-experience">
+              <option>Any</option>
+              <option>Entry Level</option>
+              <option>6+ Months</option>
+              <option>1+ Year</option>
+              <option>2+ Years</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Tools / Technology Required</label>
+          <input class="form-control" id="pp-tools" placeholder="e.g., Dialpad, Five9 CRM, Salesforce" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Working Hours</label>
+          <input class="form-control" id="pp-shift" placeholder="e.g., 9 AM - 6 PM EST" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Compliance Requirements</label>
+          <input class="form-control" id="pp-compliance" placeholder="e.g., TCPA Compliant, HIPAA, GDPR" />
+        </div>
+
+        <div style="border-top:1px solid var(--border-light);margin:16px 0;padding-top:16px">
+          <p style="font-size:0.8125rem;font-weight:600;margin-bottom:12px;color:var(--text-primary)">Contact Details</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="form-group">
+              <label class="form-label">Your Name *</label>
+              <input class="form-control" id="pp-name" placeholder="Full name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Company Name</label>
+              <input class="form-control" id="pp-company" placeholder="Company name" />
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="form-group">
+              <label class="form-label">Email *</label>
+              <input class="form-control" id="pp-email" type="email" placeholder="you@company.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone *</label>
+              <input class="form-control" id="pp-phone" placeholder="+1 (555) 000-0000" required />
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:8px">
+          📤 Submit Project via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
 <!-- Toast Container -->
 <div id="toast-container"></div>
 
@@ -1228,6 +1369,53 @@
     window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
     closeModal('contact-whatsapp-modal');
     document.getElementById('whatsapp-contact-form').reset();
+  }
+
+  function submitPostProject(e) {
+    e.preventDefault();
+    const phone = '918438443477';
+    const title = document.getElementById('pp-title').value;
+    const industry = document.getElementById('pp-industry').value;
+    const category = document.getElementById('pp-category').value;
+    const country = document.getElementById('pp-country').value;
+    const payoutType = document.getElementById('pp-payout-type').value;
+    const payout = document.getElementById('pp-payout').value;
+    const description = document.getElementById('pp-description').value;
+    const teamSize = document.getElementById('pp-team-size').value;
+    const experience = document.getElementById('pp-experience').value;
+    const tools = document.getElementById('pp-tools').value;
+    const shift = document.getElementById('pp-shift').value;
+    const compliance = document.getElementById('pp-compliance').value;
+    const name = document.getElementById('pp-name').value;
+    const company = document.getElementById('pp-company').value;
+    const email = document.getElementById('pp-email').value;
+    const phoneNum = document.getElementById('pp-phone').value;
+
+    let text = `Hi LEEMDO! I want to post a new project.%0A%0A` +
+      `*Project Details:*%0A` +
+      `Title: ${title}%0A` +
+      `Industry: ${industry}%0A` +
+      `Category: ${category}%0A` +
+      `Country: ${country}%0A` +
+      `Payout Type: ${payoutType}%0A` +
+      `Payout: ${payout}%0A%0A` +
+      `*Description:*%0A${description}%0A%0A` +
+      `*Requirements:*%0A` +
+      `Team Size: ${teamSize || 'N/A'}%0A` +
+      `Experience: ${experience}%0A` +
+      `Tools: ${tools || 'N/A'}%0A` +
+      `Shift: ${shift || 'N/A'}%0A` +
+      `Compliance: ${compliance || 'N/A'}%0A%0A` +
+      `*Contact:*%0A` +
+      `Name: ${name}%0A` +
+      `Company: ${company || 'N/A'}%0A` +
+      `Email: ${email}%0A` +
+      `Phone: ${phoneNum}`;
+
+    window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+    closeModal('post-project-modal');
+    document.getElementById('post-project-form').reset();
+    showToast('Project submitted! We\'ll contact you on WhatsApp.', 'success');
   }
 </script>
 </body>
