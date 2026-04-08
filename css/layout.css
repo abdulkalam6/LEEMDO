@@ -1137,7 +1137,7 @@
   margin-bottom: 16px;
 }
 
-.footer-logo img { height: 38px; filter: brightness(1.1); }
+.footer-logo img { height: 38px; filter: brightness(1.1); border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-200); }
 
 .footer-logo .brand-name {
   font-size: 1.125rem;
